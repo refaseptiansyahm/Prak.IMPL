@@ -1,0 +1,49 @@
+<!--REFA SEPTIANSYAH
+	3411181102
+	DSE-B-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tugas Implementasi Interface</title>
+</head>
+<body>
+	<form name="formTugas" action="" onsubmit="return validateForm()" id="tugasku" method="POST">
+		<input type="text" name="username" id="username" placeholder="Username"><br>
+		<input type="password" name="password" id="pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder="Password"><br>
+		<input type="password" name="repeat" id="repeat" placeholder="Ulangi Password"><br>
+		<input type="text" name="email" id="email" pattern= "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"placeholder="Email"><br>
+		<input type="text" name="telp" id="telp"  pattern="^\d{12}$" placeholder="Nomor Telepon"><br>
+		<textarea id="alamat" style="width: 167px;">Alamat</textarea><br>
+		<input type="submit" name="" value="Submit">
+	</form>
+	<script type="text/javascript">
+		function validateForm() {
+			var username = document.formTugas.username.value;
+			var pass = document.getElementById('pass').value;
+            var repeat = document.getElementById('repeat').value;
+            var alamat = document.getElementById('alamat').value;
+
+			if ((username.length<3) || (username.length>15)) {
+				alert("Panjang username harus 3-15 karakter!");
+				return false;
+			}
+			else if (repeat.value == pass.value){
+				alert("Password tersimpan!");
+			} else if (repeat.value =! pass.value){
+				alert("Password tidak sama!");
+				return false;
+			}
+			else if(alamat == ""){
+				alert("username tidak boleh kosong");
+				return false;
+			}
+			else if(alamat != ""){
+				return true;
+			}
+			return true;
+		}
+	</script>
+
+</body>
+</html>
